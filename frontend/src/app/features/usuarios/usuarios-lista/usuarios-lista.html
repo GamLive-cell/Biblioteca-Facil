@@ -1,0 +1,37 @@
+﻿<section class="usuarios-container">
+  <header class="cabecalho">
+    <div>
+      <h1>Usuários</h1>
+      <p>Gerencie os usuários da Biblioteca Fácil.</p>
+    </div>
+    <button class="btn-novo" type="button" (click)="novo()">+ Novo usuário</button>
+  </header>
+
+  <label for="pesquisa">Buscar usuário</label>
+  <input id="pesquisa" type="search" placeholder="Digite o nome ou e-mail"
+    [value]="pesquisa()" (input)="pesquisa.set($any($event.target).value)" />
+
+  @if (carregando()) {
+    <p role="status">Carregando usuários...</p>
+  }
+  @if (erro()) {
+    <p class="mensagem-erro" role="alert">{{ erro() }}</p>
+  }
+  @if (sucesso()) {
+    <p class="mensagem-sucesso" role="status">{{ sucesso() }}</p>
+  }
+
+  @if (usuarios().length > 0) {
+    <div class="lista-usuarios">
+      @for (usuario of usuarios(); track usuario._id) {
+        <app-usuario-card [usuario]="usuario"
+          (editar)="editar($event)" (excluir)="excluir($event)" />
+      }
+    </div>
+  } @else {
+    <div class="estado-vazio">
+      <h2>Nenhum usuário encontrado</h2>
+      <p>Tente outro nome ou e-mail, ou cadastre um novo usuário.</p>
+    </div>
+  }
+</section>

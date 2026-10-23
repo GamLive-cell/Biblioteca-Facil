@@ -1,0 +1,7 @@
+﻿.form-container { max-width: 600px; margin: 32px auto; padding: 24px; background: white; border: 1px solid #e5e7eb; border-radius: 12px; }
+form label { display: block; font-weight: 600; margin: 18px 0 8px; }
+input, select { box-sizing: border-box; width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; }
+.campo-erro, .mensagem-erro { color: #b91c1c; font-size: .9rem; margin: 6px 0 0; }
+.acoes { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+button { padding: 11px 16px; border: 0; border-radius: 8px; background: #4f46e5; color: white; cursor: pointer; }
+button.secundario { background: #e5e7eb; color: #222; }
