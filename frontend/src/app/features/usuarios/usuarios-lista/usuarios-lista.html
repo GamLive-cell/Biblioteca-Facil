@@ -1,0 +1,44 @@
+﻿<section class="usuarios-container">
+  <header class="cabecalho">
+    <div>
+      <h1>Usuários</h1>
+      <p>Gerencie os usuários da Biblioteca Fácil.</p>
+    </div>
+    
+     <a class="btn-novo" routerLink="/usuarios/novo">
+  + Novo usuário
+    </a>
+  
+  </header>
+
+  <div class="barra-pesquisa">
+    <label for="pesquisa">Buscar usuário</label>
+    <input
+      id="pesquisa"
+      type="text"
+      placeholder="Digite o nome ou e-mail"
+      [value]="pesquisa()"
+      (input)="pesquisa.set($any($event.target).value)"
+    />
+  </div>
+
+  @if (usuariosFiltrados().length > 0) {
+    <div class="lista-usuarios">
+      @for (usuario of usuariosFiltrados(); track usuario.id) {
+        <article class="usuario-card">
+          <div>
+            <h2>{{ usuario.nome }}</h2>
+            <p>{{ usuario.email }}</p>
+          </div>
+
+          <span class="perfil">{{ usuario.perfil }}</span>
+        </article>
+      }
+    </div>
+  } @else {
+    <div class="estado-vazio">
+      <h2>Nenhum usuário encontrado</h2>
+      <p>Tente outro nome ou e-mail.</p>
+    </div>
+  }
+</section>
