@@ -4,41 +4,34 @@
       <h1>Usuários</h1>
       <p>Gerencie os usuários da Biblioteca Fácil.</p>
     </div>
-    
-     <a class="btn-novo" routerLink="/usuarios/novo">
-  + Novo usuário
-    </a>
-  
+    <button class="btn-novo" type="button" (click)="novo()">+ Novo usuário</button>
   </header>
 
-  <div class="barra-pesquisa">
-    <label for="pesquisa">Buscar usuário</label>
-    <input
-      id="pesquisa"
-      type="text"
-      placeholder="Digite o nome ou e-mail"
-      [value]="pesquisa()"
-      (input)="pesquisa.set($any($event.target).value)"
-    />
-  </div>
+  <label for="pesquisa">Buscar usuário</label>
+  <input id="pesquisa" type="search" placeholder="Digite o nome ou e-mail"
+    [value]="pesquisa()" (input)="pesquisa.set($any($event.target).value)" />
 
-  @if (usuariosFiltrados().length > 0) {
+  @if (carregando()) {
+    <p role="status">Carregando usuários...</p>
+  }
+  @if (erro()) {
+    <p class="mensagem-erro" role="alert">{{ erro() }}</p>
+  }
+  @if (sucesso()) {
+    <p class="mensagem-sucesso" role="status">{{ sucesso() }}</p>
+  }
+
+  @if (usuarios().length > 0) {
     <div class="lista-usuarios">
-      @for (usuario of usuariosFiltrados(); track usuario.id) {
-        <article class="usuario-card">
-          <div>
-            <h2>{{ usuario.nome }}</h2>
-            <p>{{ usuario.email }}</p>
-          </div>
-
-          <span class="perfil">{{ usuario.perfil }}</span>
-        </article>
+      @for (usuario of usuarios(); track usuario._id) {
+        <app-usuario-card [usuario]="usuario"
+          (editar)="editar($event)" (excluir)="excluir($event)" />
       }
     </div>
   } @else {
     <div class="estado-vazio">
       <h2>Nenhum usuário encontrado</h2>
-      <p>Tente outro nome ou e-mail.</p>
+      <p>Tente outro nome ou e-mail, ou cadastre um novo usuário.</p>
     </div>
   }
 </section>

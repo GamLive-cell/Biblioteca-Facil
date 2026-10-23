@@ -1,49 +1,83 @@
-
-import { Component, inject, output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Usuario } from '../usuario.model';
+﻿import { Component, inject, signal } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuariosService } from '../usuarios.service';
 
 @Component({
   selector: 'app-usuario-form',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [ReactiveFormsModule],
   templateUrl: './usuario-form.html',
   styleUrl: './usuario-form.css',
 })
 export class UsuarioForm {
-  usuarioSalvo = output<Usuario>();
-
   private servico = inject(UsuariosService);
+  private rota = inject(ActivatedRoute);
   private router = inject(Router);
 
-  nome = '';
-  email = '';
-  perfil = 'Leitor';
-  erro = '';
+  editando = signal(false);
+  erro = signal('');
+  sucesso = signal('');
 
-  salvar() {
-    this.erro = '';
+  form = new FormGroup({
+    nome: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.minLength(3)],
+    }),
+    email: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.email],
+    }),
+    perfil: new FormControl('Leitor', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
+  });
 
-    if (!this.nome.trim() || !this.email.trim() || !this.perfil) {
-      this.erro = 'Preencha todos os campos.';
+  constructor() {
+    const id = this.rota.snapshot.paramMap.get('id');
+    if (id) {
+      const usuario = this.servico.buscarPorId(id);
+      if (!usuario) {
+        this.erro.set('Usuário não encontrado.');
+        return;
+      }
+      this.editando.set(true);
+      this.form.setValue({
+        nome: usuario.nome,
+        email: usuario.email,
+        perfil: usuario.perfil,
+      });
+    }
+  }
+
+  salvar(): void {
+    this.erro.set('');
+    this.sucesso.set('');
+    this.form.markAllAsTouched();
+
+    if (this.form.invalid) {
+      this.erro.set('Confira os campos destacados antes de continuar.');
       return;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email)) {
-      this.erro = 'Digite um e-mail válido.';
-      return;
+    const dados = this.form.getRawValue();
+    const id = this.rota.snapshot.paramMap.get('id');
+
+    if (id) {
+      const atualizado = this.servico.atualizar(id, dados);
+      if (!atualizado) {
+        this.erro.set('Não foi possível encontrar o usuário para editar.');
+        return;
+      }
+    } else {
+      this.servico.criar(dados);
     }
 
-    const usuario = this.servico.adicionar({
-      nome: this.nome.trim(),
-      email: this.email.trim(),
-      perfil: this.perfil,
-    });
+    this.router.navigate(['/usuarios']);
+  }
 
-    this.usuarioSalvo.emit(usuario);
+  cancelar(): void {
     this.router.navigate(['/usuarios']);
   }
 }
-
-

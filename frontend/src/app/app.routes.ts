@@ -1,11 +1,8 @@
-﻿
-import { Routes } from '@angular/router';
-import { UsuariosLista } from './features/usuarios/usuarios-lista/usuarios-lista';
-import { UsuarioForm } from './features/usuarios/usuario-form/usuario-form';
+﻿import { Routes } from '@angular/router';
+import { USUARIOS_ROUTES } from './features/usuarios/usuarios.routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'usuarios', pathMatch: 'full' },
-  { path: 'usuarios', component: UsuariosLista },
-  { path: 'usuarios/novo', component: UsuarioForm },
+  { path: 'usuarios', children: USUARIOS_ROUTES },
+  { path: '**', redirectTo: 'usuarios' },
 ];
-
