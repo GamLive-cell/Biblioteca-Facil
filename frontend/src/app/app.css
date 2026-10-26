@@ -1,0 +1,42 @@
+﻿:host {
+  display: block;
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px max(24px, calc((100% - 1000px) / 2));
+  background: #173b67;
+  color: white;
+}
+
+.marca {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu nav a {
+  display: inline-block;
+  padding: 10px 14px;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.menu nav a:hover,
+.menu nav a.ativo {
+  background: #285786;
+}
+
+@media (max-width: 500px) {
+  .menu {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
