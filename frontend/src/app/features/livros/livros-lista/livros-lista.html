@@ -1,1 +1,4 @@
-<p>livros-lista works!</p>
+<section class="livros-container"><header class="cabecalho"><div><h1>Acervo de livros</h1><p>Consulte e gerencie os livros da Biblioteca Fácil.</p></div><button class="btn-novo" type="button" (click)="novo()">+ Novo livro</button></header>
+<label for="pesquisa-livro">Buscar livro</label><input id="pesquisa-livro" type="search" placeholder="Título, autor, ISBN ou categoria" [value]="pesquisa()" (input)="pesquisa.set($any($event.target).value)" />
+@if(carregando()){<p role="status">Carregando livros...</p>} @if(erro()){<p class="erro" role="alert">{{erro()}}</p>} @if(sucesso()){<p class="sucesso" role="status">{{sucesso()}}</p>}
+@if(livros().length){<div class="lista-livros">@for(livro of livros(); track livro._id){<app-livro-card [livro]="livro" (editar)="editar($event)" (excluir)="excluir($event)" />}</div>}@else{<div class="vazio"><h2>Nenhum livro encontrado</h2><p>Tente outro termo ou cadastre um livro.</p></div>}</section>

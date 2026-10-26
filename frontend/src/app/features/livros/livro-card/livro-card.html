@@ -1,1 +1,4 @@
-<p>livro-card works!</p>
+<article class="livro-card">
+  <div><h2>{{ livro().titulo }}</h2><p><strong>Autor:</strong> {{ livro().autor }}</p><p><strong>Categoria:</strong> {{ livro().categoria }} · <strong>Ano:</strong> {{ livro().anoPublicacao }}</p><p><strong>ISBN:</strong> {{ livro().isbn }}</p><p>{{ livro().descricao }}</p><span class="quantidade">Disponíveis: {{ livro().quantidade }}</span></div>
+  <div class="acoes"><button type="button" (click)="editar.emit(livro()._id)">Editar</button><button type="button" class="excluir" (click)="excluir.emit(livro()._id)">Excluir</button></div>
+</article>
