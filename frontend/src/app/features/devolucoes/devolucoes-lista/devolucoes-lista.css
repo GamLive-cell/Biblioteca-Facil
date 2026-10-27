@@ -1,0 +1,72 @@
+.devolucoes-container {
+  padding: 24px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.devolucoes-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #1f2937;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #1f2937;
+  color: #fff;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr:hover {
+  background-color: #f3f4f6;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.devolucoes-container p {
+  color: #6b7280;
+  margin-top: 16px;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.cabecalho h2 {
+  margin-bottom: 0;
+}
+
+.botao-nova {
+  display: inline-block;
+  padding: 12px 18px;
+  background-color: #1f2937;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.botao-nova:hover {
+  background-color: #374151;
+}
