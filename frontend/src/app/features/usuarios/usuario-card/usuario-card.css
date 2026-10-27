@@ -1,0 +1,23 @@
+﻿.usuario-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+}
+h2 { margin: 0 0 8px; font-size: 1.1rem; }
+p { margin: 0 0 10px; color: #555; }
+.perfil { font-size: .85rem; color: #4f46e5; }
+.acoes { display: flex; gap: 8px; }
+button {
+  border: 0;
+  border-radius: 6px;
+  padding: 9px 12px;
+  cursor: pointer;
+  background: #e8eaff;
+  color: #3730a3;
+}
+button.excluir { background: #fee2e2; color: #991b1b; }

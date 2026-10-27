@@ -1,0 +1,37 @@
+<section class="devolucoes-container">
+  <div class="cabecalho">
+    <h2>Devoluções de Livros</h2>
+
+    <a routerLink="/devolucoes/novo" class="botao-nova">
+      + Nova devolução
+    </a>
+  </div>
+
+  @if (devolucoes.length > 0) {
+    <table>
+      <thead>
+        <tr>
+          <th>Livro</th>
+          <th>ID do empréstimo</th>
+          <th>Usuário</th>
+          <th>Data de devolução</th>
+          <th>Observação</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (devolucao of devolucoes; track devolucao._id) {
+          <tr>
+            <td>{{ devolucao.tituloLivro }}</td>
+            <td>{{ devolucao.emprestimoId }}</td>
+            <td>{{ devolucao.nomeUsuario }}</td>
+            <td>{{ devolucao.dataDevolucao | date:'dd/MM/yyyy':'UTC' }}</td>
+            <td>{{ devolucao.observacao || 'Sem observação' }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <p>Nenhuma devolução cadastrada.</p>
+  }
+</section>
