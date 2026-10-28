@@ -1,42 +1,60 @@
-﻿:host {
-  display: block;
-  min-height: 100vh;
-  background: #f4f7fb;
-}
+/* Cabeçalho principal atual do app.html (menu horizontal) */
+:host { display: block; min-height: 100vh; }
 
 .menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 18px max(24px, calc((100% - 1000px) / 2));
-  background: #173b67;
-  color: white;
+  gap: 24px;
+  min-height: 64px;
+  padding: 0 clamp(18px, 4vw, 56px);
+  color: #fff;
+  background: linear-gradient(100deg, var(--bf-navy-dark), var(--bf-navy));
+  box-shadow: 0 3px 10px rgba(12, 36, 61, .16);
 }
 
-.marca {
-  color: white;
-  font-size: 22px;
-  font-weight: bold;
+.menu .marca {
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
   text-decoration: none;
+}
+
+.menu nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .menu nav a {
-  display: inline-block;
-  padding: 10px 14px;
-  color: white;
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  color: #eaf1f8;
+  border-radius: 7px;
+  font-size: .88rem;
+  font-weight: 600;
   text-decoration: none;
-  border-radius: 6px;
+  transition: color .16s ease, background-color .16s ease;
 }
 
-.menu nav a:hover,
-.menu nav a.ativo {
-  background: #285786;
+.menu nav a:hover { color: #fff; background: rgba(255,255,255,.12); }
+.menu nav a.ativo { color: #fff; background: rgba(255,255,255,.18); }
+
+main {
+  min-height: calc(100vh - 64px);
+  padding: 28px 0 40px;
+  background: var(--bf-bg);
 }
 
-@media (max-width: 500px) {
-  .menu {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+@media (max-width: 760px) {
+  .menu { align-items: flex-start; flex-direction: column; gap: 8px; padding: 14px 16px 12px; }
+  .menu nav { width: 100%; justify-content: flex-start; }
+  .menu nav a { padding: 7px 9px; }
+  main { min-height: calc(100vh - 110px); padding-top: 18px; }
 }

@@ -1,1 +1,17 @@
-.livros-container{max-width:1000px;margin:32px auto;padding:0 20px}.cabecalho{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:24px}.cabecalho h1{margin:0;color:#173b67}.cabecalho p{color:#536579}.btn-novo{padding:11px 15px;background:#173b67;color:white;border:0;border-radius:7px;cursor:pointer}label{display:block;margin-bottom:6px;font-weight:600}input{box-sizing:border-box;width:100%;padding:12px;border:1px solid #bdc9d8;border-radius:7px;margin-bottom:20px}.lista-livros{display:grid;gap:14px}.vazio{padding:30px;text-align:center;background:white;border-radius:10px}.erro{color:#a52d36}.sucesso{color:#176438}@media(max-width:600px){.cabecalho{align-items:flex-start;flex-direction:column}}
+:host { display: block; }
+.livros-container, .livros-lista-container, .pagina-livros { width: min(1180px, calc(100% - 40px)); margin: 0 auto; color: var(--bf-text); }
+.cabecalho, .page-header, .livros-cabecalho { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 22px; flex-wrap: wrap; }
+.cabecalho h1, .cabecalho h2, .page-header h1, .page-header h2, .livros-cabecalho h1, .livros-cabecalho h2 { margin: 0 0 5px; }
+.cabecalho p, .page-header p, .livros-cabecalho p { margin: 0; color: var(--bf-muted); }
+.busca, .filtros, .barra-filtros { display: flex; align-items: end; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.busca input, .barra-filtros input { flex: 1 1 250px; }
+.lista-livros, .livros-grid, .cards-livros { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 16px; }
+.livro-item, .livro-card, .livro { min-width: 0; padding: 18px; border: 1px solid var(--bf-border); border-radius: var(--bf-radius); background: #fff; box-shadow: var(--bf-shadow); }
+.livro-item h3, .livro-card h3, .livro h3 { margin-bottom: 8px; }
+.tabela-container, .table-container { overflow-x: auto; border: 1px solid var(--bf-border); border-radius: var(--bf-radius); background: #fff; box-shadow: var(--bf-shadow); }
+.livros-container table, .livros-lista-container table, .pagina-livros table { min-width: 760px; }
+.disponivel, .badge-disponivel { display: inline-block; padding: 4px 9px; border-radius: 999px; color: var(--bf-success); background: var(--bf-success-bg); font-size: .78rem; font-weight: 700; }
+.indisponivel, .badge-indisponivel { display: inline-block; padding: 4px 9px; border-radius: 999px; color: var(--bf-danger); background: var(--bf-danger-bg); font-size: .78rem; font-weight: 700; }
+.acoes-livro, .acoes { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.acoes-livro .excluir, .acoes .excluir, button.excluir { background: var(--bf-danger); }
+@media (max-width: 640px) { .livros-container, .livros-lista-container, .pagina-livros { width: calc(100% - 24px); } }

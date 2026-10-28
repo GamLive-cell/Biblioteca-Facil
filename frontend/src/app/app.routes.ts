@@ -3,6 +3,8 @@ import { USUARIOS_ROUTES } from './features/usuarios/usuarios.routes';
 import { LIVROS_ROUTES } from './features/livros/livros.routes';
 import { AUTH_ROUTES } from './features/auth/auth.routes';
 import { EMPRESTIMOS_ROUTES } from './features/emprestimos/emprestimos.routes';
+import { DEVOLUCOES_ROUTES } from './features/devolucoes/devolucoes.routes';
+import { Inicio } from './features/inicio/inicio/inicio';
 
 export const routes: Routes = [
   ...AUTH_ROUTES,
@@ -10,5 +12,7 @@ export const routes: Routes = [
   { path: 'livros', children: LIVROS_ROUTES },
   { path: 'usuarios', children: USUARIOS_ROUTES },
   { path: 'emprestimos', children: EMPRESTIMOS_ROUTES },
+  { path: 'inicio', component: Inicio },
+  { path: 'devolucoes', children: DEVOLUCOES_ROUTES },
   { path: '**', redirectTo: 'livros' },
 ];
