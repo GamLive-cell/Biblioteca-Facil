@@ -1,0 +1,24 @@
+/* Login e cadastro */
+:host { display: block; }
+.auth-container, .login-container, .cadastro-container, .auth-card {
+  width: min(430px, calc(100% - 32px));
+  margin: 36px auto;
+  padding: 30px;
+  border: 1px solid var(--bf-border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--bf-shadow);
+}
+.auth-container h1, .auth-container h2,
+.login-container h1, .login-container h2,
+.cadastro-container h1, .cadastro-container h2,
+.auth-card h1, .auth-card h2 { margin-bottom: 8px; text-align: center; }
+.auth-container p, .login-container p, .cadastro-container p, .auth-card p { color: var(--bf-muted); }
+.auth-container form, .login-container form, .cadastro-container form, .auth-card form { display: grid; gap: 16px; }
+.auth-container .campo, .login-container .campo, .cadastro-container .campo, .auth-card .campo { display: grid; gap: 6px; }
+.auth-container button, .login-container button, .cadastro-container button, .auth-card button { width: 100%; min-height: 42px; margin-top: 4px; }
+.auth-container a, .login-container a, .cadastro-container a, .auth-card a { font-weight: 600; }
+.auth-container .erro, .login-container .erro, .cadastro-container .erro, .auth-card .erro { padding: 10px 12px; border-radius: 7px; background: var(--bf-danger-bg); }
+@media (max-width: 520px) {
+  .auth-container, .login-container, .cadastro-container, .auth-card { margin: 20px auto; padding: 22px; }
+}

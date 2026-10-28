@@ -1,0 +1,11 @@
+﻿<article class="usuario-card">
+  <div class="dados">
+    <h2>{{ usuario().nome }}</h2>
+    <p>{{ usuario().email }}</p>
+    <span class="perfil">{{ usuario().perfil }}</span>
+  </div>
+  <div class="acoes">
+    <button type="button" (click)="editar.emit(usuario()._id)">Editar</button>
+    <button type="button" class="excluir" (click)="excluir.emit(usuario()._id)">Excluir</button>
+  </div>
+</article>

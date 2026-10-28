@@ -1,0 +1,67 @@
+<section class="form-container">
+  <h2>Registrar Devolução</h2>
+
+  <form #form="ngForm" (ngSubmit)="salvar()">
+    <div class="campo">
+      <label for="emprestimoId">ID do empréstimo *</label>
+      <input
+        id="emprestimoId"
+        name="emprestimoId"
+        [(ngModel)]="emprestimoId"
+        required
+      />
+    </div>
+
+    <div class="campo">
+      <label for="tituloLivro">Título do livro *</label>
+      <input
+        id="tituloLivro"
+        name="tituloLivro"
+        [(ngModel)]="tituloLivro"
+        required
+      />
+    </div>
+
+    <div class="campo">
+      <label for="nomeUsuario">Nome do usuário *</label>
+      <input
+        id="nomeUsuario"
+        name="nomeUsuario"
+        [(ngModel)]="nomeUsuario"
+        required
+      />
+    </div>
+
+    <div class="campo">
+      <label for="dataDevolucao">Data da devolução *</label>
+      <input
+        id="dataDevolucao"
+        name="dataDevolucao"
+        type="date"
+        [(ngModel)]="dataDevolucao"
+        required
+      />
+    </div>
+
+    <div class="campo">
+      <label for="observacao">Observação</label>
+      <textarea
+        id="observacao"
+        name="observacao"
+        [(ngModel)]="observacao"
+      ></textarea>
+    </div>
+
+    @if (erro) {
+      <p class="erro">{{ erro }}</p>
+    }
+
+    <div class="acoes">
+      <a routerLink="/devolucoes" class="botao-cancelar">
+        Cancelar
+      </a>
+
+      <button type="submit">Registrar devolução</button>
+    </div>
+  </form>
+</section>
