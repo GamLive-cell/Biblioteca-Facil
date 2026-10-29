@@ -30,20 +30,21 @@
   background-color: #1f2937;
   color: #fff;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: bold;
   text-align: center;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .botao-novo:hover {
   background-color: #374151;
+  transform: translateY(-1px);
 }
 
 .tabela-container {
   width: 100%;
   overflow-x: auto;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #e5e7eb;
 }
 
@@ -69,6 +70,10 @@ td {
 th {
   white-space: nowrap;
   font-size: 14px;
+}
+
+tbody tr {
+  transition: background-color 0.2s ease;
 }
 
 tbody tr:hover {
@@ -101,6 +106,80 @@ tbody tr:last-child td {
 .status.atrasado {
   background-color: #fee2e2;
   color: #b91c1c;
+}
+
+/* Alinhamento dos botões */
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* Estilo compartilhado */
+.botao-editar,
+.botao-excluir {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* Botão Editar */
+.botao-editar {
+  background-color: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+
+
+.botao-editar:hover {
+  background-color: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Botão Excluir */
+.botao-excluir {
+  background-color: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fecdd3;
+}
+
+
+
+.botao-excluir:hover {
+  background-color: #e11d48;
+  color: #fff;
+  border-color: #e11d48;
+  box-shadow: 0 4px 10px rgba(225, 29, 72, 0.2);
+  transform: translateY(-1px);
+}
+
+.botao-editar:active,
+.botao-excluir:active {
+  transform: scale(0.97);
+}
+
+.botao-editar:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+.botao-excluir:focus-visible {
+  outline: 3px solid #fda4af;
+  outline-offset: 3px;
 }
 
 .vazio {

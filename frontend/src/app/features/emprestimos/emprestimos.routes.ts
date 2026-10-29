@@ -5,4 +5,5 @@ import { EmprestimosForm } from './emprestimos-form/emprestimos-form';
 export const EMPRESTIMOS_ROUTES: Routes = [
   { path: '', component: EmprestimosLista },
   { path: 'novo', component: EmprestimosForm },
+  { path: ':id/editar', component: EmprestimosForm },
 ];

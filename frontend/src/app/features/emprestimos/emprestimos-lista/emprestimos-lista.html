@@ -1,3 +1,4 @@
+
 <section class="emprestimos-container">
   <div class="cabecalho">
     <div>
@@ -21,6 +22,7 @@
             <th>Devolução prevista</th>
             <th>Status</th>
             <th>Observação</th>
+            <th>Ações</th>
           </tr>
         </thead>
 
@@ -29,14 +31,17 @@
             <tr>
               <td>{{ emprestimo.tituloLivro }}</td>
               <td>{{ emprestimo.nomeUsuario }}</td>
+
               <td>
                 {{ emprestimo.dataEmprestimo | date:'dd/MM/yyyy':'UTC' }}
               </td>
+
               <td>
                 {{ emprestimo.dataPrevistaDevolucao | date:'dd/MM/yyyy':'UTC' }}
               </td>
+
               <td>
-                <span class="status" [class]=" 'status ' + emprestimo.status ">
+                <span [class]="'status ' + emprestimo.status">
                   {{
                     emprestimo.status === 'ativo'
                       ? 'Ativo'
@@ -46,7 +51,25 @@
                   }}
                 </span>
               </td>
+
               <td>{{ emprestimo.observacao || '—' }}</td>
+
+              <td class="acoes">
+                <a
+                  class="botao-editar"
+                  [routerLink]="['/emprestimos', emprestimo._id, 'editar']"
+                >
+                  ✏️ Editar
+                </a>
+
+                <button
+                  type="button"
+                  class="botao-excluir"
+                  (click)="excluir(emprestimo._id)"
+                >
+                  🗑 Excluir
+                </button>
+              </td>
             </tr>
           }
         </tbody>

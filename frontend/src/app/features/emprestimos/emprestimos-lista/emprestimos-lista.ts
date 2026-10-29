@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -17,6 +18,26 @@ export class EmprestimosLista implements OnInit {
   constructor(private emprestimosMock: EmprestimosMock) {}
 
   ngOnInit(): void {
+    this.atualizarLista();
+  }
+
+  atualizarLista(): void {
     this.emprestimos = this.emprestimosMock.listar();
+  }
+
+  excluir(id: string): void {
+    const confirmar = window.confirm(
+      'Tem certeza que deseja excluir este empréstimo?'
+    );
+
+    if (!confirmar) {
+      return;
+    }
+
+    const removido = this.emprestimosMock.remover(id);
+
+    if (removido) {
+      this.atualizarLista();
+    }
   }
 }
