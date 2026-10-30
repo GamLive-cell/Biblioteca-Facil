@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================================================
+   BIBLIOTECA FÁCIL — ESTILOS GLOBAIS
+   Arquivo: src/styles.css
+========================================================= */
+
+:root {
+  color-scheme: light;
+
+  --bf-bg: #f4f7fb;
+  --bf-surface: #ffffff;
+  --bf-navy-dark: #102c4b;
+  --bf-navy: #183b63;
+  --bf-blue: #2c5e8d;
+  --bf-blue-light: #e7f0f8;
+  --bf-text: #26384a;
+  --bf-muted: #718096;
+  --bf-border: #dce5ee;
+  --bf-success: #16805d;
+  --bf-success-bg: #e5f5ed;
+  --bf-warning: #a36a0c;
+  --bf-warning-bg: #fff3dc;
+  --bf-danger: #b42332;
+  --bf-danger-bg: #fee9eb;
+  --bf-radius: 12px;
+  --bf-shadow: 0 4px 14px rgba(23, 50, 79, 0.06);
+
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--bf-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--bf-text);
+  background: var(--bf-bg);
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+input,
+select,
+textarea {
+  color: var(--bf-text);
+}
+
+a {
+  color: var(--bf-blue);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(44, 94, 141, 0.35);
+  outline-offset: 2px;
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--bf-blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
