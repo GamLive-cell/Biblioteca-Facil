@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { Emprestimo } from './emprestimo.model';
 
@@ -30,7 +31,40 @@ export class EmprestimosMock {
     },
   ];
 
+  private obterDataAtual(): string {
+    const hoje = new Date();
+
+    const ano = hoje.getFullYear();
+    const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    const dia = String(hoje.getDate()).padStart(2, '0');
+
+    return `${ano}-${mes}-${dia}`;
+  }
+
+  private atualizarStatusAutomaticamente(): void {
+    const hoje = this.obterDataAtual();
+
+    this.emprestimos.forEach((emprestimo) => {
+      if (emprestimo.status === 'devolvido') {
+        return;
+      }
+
+      if (emprestimo.dataPrevistaDevolucao < hoje) {
+        emprestimo.status = 'atrasado';
+        emprestimo.observacao = 'Prazo de devolução expirado';
+      } else {
+        emprestimo.status = 'ativo';
+
+        if (emprestimo.observacao === 'Prazo de devolução expirado') {
+          emprestimo.observacao = '';
+        }
+      }
+    });
+  }
+
   listar(): Emprestimo[] {
+    this.atualizarStatusAutomaticamente();
+
     return [...this.emprestimos];
   }
 

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { Emprestimo } from '../emprestimo.model';
 import { EmprestimosMock } from '../emprestimos-mock';
 
@@ -25,7 +25,7 @@ function adicionarDias(data: Date, dias: number): Date {
   templateUrl: './emprestimos-form.html',
   styleUrl: './emprestimos-form.css',
 })
-export class EmprestimosForm {
+export class EmprestimosForm implements OnInit {
   emprestimoId = '';
   livroId = '';
   tituloLivro = '';
@@ -43,8 +43,33 @@ export class EmprestimosForm {
 
   constructor(
     private emprestimosMock: EmprestimosMock,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (!id) {
+      return;
+    }
+
+    const emprestimo = this.emprestimosMock.buscarPorId(id);
+
+    if (!emprestimo) {
+      this.erro = 'Empréstimo não encontrado.';
+      return;
+    }
+
+    this.emprestimoId = emprestimo._id;
+    this.livroId = emprestimo.livroId;
+    this.tituloLivro = emprestimo.tituloLivro;
+    this.usuarioId = emprestimo.usuarioId;
+    this.nomeUsuario = emprestimo.nomeUsuario;
+    this.dataEmprestimo = emprestimo.dataEmprestimo;
+    this.dataPrevistaDevolucao = emprestimo.dataPrevistaDevolucao;
+    this.observacao = emprestimo.observacao || '';
+  }
 
   salvar(): void {
     if (
@@ -65,19 +90,41 @@ export class EmprestimosForm {
       return;
     }
 
-    const novoEmprestimo: Emprestimo = {
-      _id: Date.now().toString(),
+    const dadosAtualizados: Partial<Emprestimo> = {
       livroId: this.livroId.trim(),
       tituloLivro: this.tituloLivro.trim(),
       usuarioId: this.usuarioId.trim(),
       nomeUsuario: this.nomeUsuario.trim(),
       dataEmprestimo: this.dataEmprestimo,
       dataPrevistaDevolucao: this.dataPrevistaDevolucao,
-      status: 'ativo',
       observacao: this.observacao.trim(),
     };
 
-    this.emprestimosMock.adicionar(novoEmprestimo);
+    if (this.emprestimoId) {
+      const atualizado = this.emprestimosMock.atualizar(
+        this.emprestimoId,
+        dadosAtualizados
+      );
+
+      if (!atualizado) {
+        this.erro = 'Não foi possível atualizar o empréstimo.';
+        return;
+      }
+    } else {
+      const novoEmprestimo: Emprestimo = {
+        _id: Date.now().toString(),
+        livroId: this.livroId.trim(),
+        tituloLivro: this.tituloLivro.trim(),
+        usuarioId: this.usuarioId.trim(),
+        nomeUsuario: this.nomeUsuario.trim(),
+        dataEmprestimo: this.dataEmprestimo,
+        dataPrevistaDevolucao: this.dataPrevistaDevolucao,
+        status: 'ativo',
+        observacao: this.observacao.trim(),
+      };
+
+      this.emprestimosMock.adicionar(novoEmprestimo);
+    }
 
     this.router.navigate(['/emprestimos']);
   }

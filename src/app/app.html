@@ -1,15 +1,64 @@
-<header class="menu">
-  <a class="marca" routerLink="/inicio">Biblioteca Fácil</a>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="marca" routerLink="/inicio">
+      <span class="marca-icone">B</span>
+      <span>
+        <strong>Biblioteca Fácil</strong>
+        <small>Gestão bibliotecária</small>
+      </span>
+    </a>
 
-  <nav aria-label="Navegação principal">
-    <a routerLink="/livros" routerLinkActive="ativo">Livros</a>
-    <a routerLink="/usuarios" routerLinkActive="ativo">Usuários</a>
-    <a routerLink="/emprestimos" routerLinkActive="ativo">Empréstimos</a>
-    <a routerLink="/devolucoes" routerLinkActive="ativo">Devoluções</a>
-    <a routerLink="/login" routerLinkActive="ativo">Entrar</a>
-  </nav>
+    <div class="menu-titulo">MENU PRINCIPAL</div>
+
+    <nav aria-label="Navegação principal">
+      <a routerLink="/livros" routerLinkActive="ativo">
+        <span class="nav-icone">▤</span>
+        <span>Livros</span>
+      </a>
+
+      <a routerLink="/usuarios" routerLinkActive="ativo">
+        <span class="nav-icone">♙</span>
+        <span>Usuários</span>
+      </a>
+
+      <a routerLink="/emprestimos" routerLinkActive="ativo">
+        <span class="nav-icone">⇄</span>
+        <span>Empréstimos</span>
+      </a>
+
+      <a routerLink="/devolucoes" routerLinkActive="ativo">
+        <span class="nav-icone">↩</span>
+        <span>Devoluções</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-rodape">
+      <div class="rodape-linha"></div>
+      <a class="link-entrar" routerLink="/login" routerLinkActive="ativo">
+        <span class="nav-icone">⇥</span>
+        <span>Entrar</span>
+      </a>
+      <small>Sistema de gerenciamento</small>
+    </div>
+  </aside>
+
+  <div class="area-principal">
+   
+<header class="topbar">
+  <div class="topbar-identidade">
+    <span class="topbar-subtitulo">SISTEMA DE GESTÃO BIBLIOTECÁRIA</span>
+    <h1>Biblioteca Fácil</h1>
+  </div>
+
+  <div class="topbar-status">
+    <span class="status-ponto"></span>
+    <span>Sistema online</span>
+  </div>
 </header>
 
-<main>
-  <router-outlet />
-</main>
+
+    <main>
+      <router-outlet />
+    </main>
+  </div>
+</div>

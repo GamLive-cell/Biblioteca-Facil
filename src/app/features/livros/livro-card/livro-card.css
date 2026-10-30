@@ -1,7 +1,110 @@
-:host { display: block; min-width: 0; }
-.livro-card, .card-livro, .livro-item { padding: 18px; border: 1px solid var(--bf-border); border-radius: var(--bf-radius); background: #fff; box-shadow: var(--bf-shadow); }
-.livro-card h2, .livro-card h3, .card-livro h2, .card-livro h3 { margin-bottom: 8px; }
-.livro-card p, .card-livro p { margin-bottom: 6px; color: var(--bf-muted); }
-.livro-card strong, .card-livro strong { color: var(--bf-text); }
-.livro-card .acoes, .card-livro .acoes { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
-.livro-card button.excluir, .card-livro button.excluir { background: var(--bf-danger); }
+
+:host {
+  display: block;
+  min-width: 0;
+  animation: card-entrada .45s ease both;
+}
+
+.livro-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid var(--bf-border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--bf-shadow);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.livro-card:hover {
+  transform: translateY(-5px);
+  border-color: #b6cce0;
+  box-shadow: 0 12px 28px rgba(24, 59, 99, .12);
+}
+
+.livro-card h2 {
+  margin: 0 0 12px;
+  color: var(--bf-navy-dark);
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 800;
+}
+
+.livro-card p {
+  margin: 0 0 9px;
+  color: var(--bf-muted);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.livro-card p strong {
+  color: var(--bf-text);
+  font-weight: 700;
+}
+
+.quantidade {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  color: var(--bf-success);
+  background: var(--bf-success-bg);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.acoes button {
+  min-width: 65px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 12px;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.acoes button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 9px rgba(0, 0, 0, .12);
+}
+
+.acoes button.excluir {
+  background: #bd2635;
+}
+
+.acoes button.excluir:hover {
+  background: #9f1d2b;
+}
+
+@keyframes card-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host {
+    animation: none;
+  }
+
+  .livro-card,
+  .acoes button {
+    transition: none;
+  }
+}

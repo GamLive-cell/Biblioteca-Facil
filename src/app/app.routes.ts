@@ -1,4 +1,6 @@
+
 import { Routes } from '@angular/router';
+
 import { USUARIOS_ROUTES } from './features/usuarios/usuarios.routes';
 import { LIVROS_ROUTES } from './features/livros/livros.routes';
 import { AUTH_ROUTES } from './features/auth/auth.routes';
@@ -8,11 +10,14 @@ import { Inicio } from './features/inicio/inicio/inicio';
 
 export const routes: Routes = [
   ...AUTH_ROUTES,
-  { path: '', redirectTo: 'livros', pathMatch: 'full' },
+
+  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+
+  { path: 'inicio', component: Inicio },
   { path: 'livros', children: LIVROS_ROUTES },
   { path: 'usuarios', children: USUARIOS_ROUTES },
   { path: 'emprestimos', children: EMPRESTIMOS_ROUTES },
-  { path: 'inicio', component: Inicio },
   { path: 'devolucoes', children: DEVOLUCOES_ROUTES },
-  { path: '**', redirectTo: 'livros' },
+
+  { path: '**', redirectTo: 'inicio' },
 ];

@@ -1,3 +1,4 @@
+
 <section class="devolucoes-container">
   <div class="cabecalho">
     <h2>Devoluções de Livros</h2>
@@ -16,6 +17,7 @@
           <th>Usuário</th>
           <th>Data de devolução</th>
           <th>Observação</th>
+          <th>Ações</th>
         </tr>
       </thead>
 
@@ -27,6 +29,24 @@
             <td>{{ devolucao.nomeUsuario }}</td>
             <td>{{ devolucao.dataDevolucao | date:'dd/MM/yyyy':'UTC' }}</td>
             <td>{{ devolucao.observacao || 'Sem observação' }}</td>
+
+            <td class="acoes">
+              <button
+                type="button"
+                class="botao-visualizar"
+                (click)="visualizar(devolucao._id)"
+              >
+                Visualizar
+              </button>
+
+              <button
+                type="button"
+                class="botao-excluir"
+                (click)="excluir(devolucao._id)"
+              >
+                Excluir
+              </button>
+            </td>
           </tr>
         }
       </tbody>

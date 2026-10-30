@@ -1,4 +1,6 @@
+
 <section class="emprestimos-container">
+
   <div class="cabecalho">
     <div>
       <h2>Empréstimos de Livros</h2>
@@ -11,7 +13,9 @@
   </div>
 
   @if (emprestimos.length > 0) {
+
     <div class="tabela-container">
+
       <table>
         <thead>
           <tr>
@@ -21,22 +25,28 @@
             <th>Devolução prevista</th>
             <th>Status</th>
             <th>Observação</th>
+            <th>Ações</th>
           </tr>
         </thead>
 
         <tbody>
           @for (emprestimo of emprestimos; track emprestimo._id) {
+
             <tr>
               <td>{{ emprestimo.tituloLivro }}</td>
+
               <td>{{ emprestimo.nomeUsuario }}</td>
+
               <td>
                 {{ emprestimo.dataEmprestimo | date:'dd/MM/yyyy':'UTC' }}
               </td>
+
               <td>
                 {{ emprestimo.dataPrevistaDevolucao | date:'dd/MM/yyyy':'UTC' }}
               </td>
+
               <td>
-                <span class="status" [class]=" 'status ' + emprestimo.status ">
+                <span [class]="'status ' + emprestimo.status">
                   {{
                     emprestimo.status === 'ativo'
                       ? 'Ativo'
@@ -46,13 +56,50 @@
                   }}
                 </span>
               </td>
-              <td>{{ emprestimo.observacao || '—' }}</td>
+
+              <td>
+                {{ emprestimo.observacao || '—' }}
+              </td>
+
+              <td>
+                <button
+                  type="button"
+                  style="background: #183b63; color: white; padding: 10px; border: none; border-radius: 6px; cursor: pointer;"
+                  (click)="editar(emprestimo._id)">
+                  Editar
+                </button>
+
+                @if (emprestimo.status !== 'devolvido') {
+
+                  <button
+                    type="button"
+                    style="background: #16845d; color: white; padding: 10px; margin-left: 8px; border: none; border-radius: 6px; cursor: pointer;"
+                    (click)="concluir(emprestimo._id)">
+                    Concluir
+                  </button>
+
+                } @else {
+
+                  <span class="concluido">
+                    Concluído
+                  </span>
+
+                }
+              </td>
             </tr>
+
           }
         </tbody>
       </table>
+
     </div>
+
   } @else {
-    <p class="vazio">Nenhum empréstimo cadastrado.</p>
+
+    <p class="vazio">
+      Nenhum empréstimo cadastrado.
+    </p>
+
   }
+
 </section>

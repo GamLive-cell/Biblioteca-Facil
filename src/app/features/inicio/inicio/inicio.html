@@ -1,78 +1,273 @@
-<section class="inicio-container">
-  <div class="boas-vindas">
-    <span class="subtitulo">PAINEL PRINCIPAL</span>
 
-    <h1>Bem-vindo à Biblioteca Fácil!</h1>
+<div class="dashboard">
 
-    <p>
-      Gerencie o acervo, acompanhe empréstimos e organize as devoluções
-      em um só lugar.
-    </p>
-  </div>
-
-  <section class="resumo">
-    <h2>Acesso rápido</h2>
-
-    <p class="descricao">
-      Selecione uma área para continuar.
-    </p>
-
-    <div class="atalhos">
-      <a routerLink="/livros" class="atalho">
-        <div class="atalho-icone livros-icone">
-          <span>LI</span>
-        </div>
-
-        <div class="atalho-conteudo">
-          <h3>Livros</h3>
-          <p>Consulte e organize o acervo da biblioteca.</p>
-        </div>
-
-        <span class="atalho-link">Acessar</span>
-      </a>
-
-      <a routerLink="/usuarios" class="atalho">
-        <div class="atalho-icone usuarios-icone">
-          <span>US</span>
-        </div>
-
-        <div class="atalho-conteudo">
-          <h3>Usuários</h3>
-          <p>Consulte e gerencie os leitores cadastrados.</p>
-        </div>
-
-        <span class="atalho-link">Acessar</span>
-      </a>
-
-      <a routerLink="/emprestimos" class="atalho">
-        <div class="atalho-icone emprestimos-icone">
-          <span>EM</span>
-        </div>
-
-        <div class="atalho-conteudo">
-          <h3>Empréstimos</h3>
-          <p>Consulte e registre empréstimos de livros.</p>
-        </div>
-
-        <span class="atalho-link">Acessar</span>
-      </a>
-
-      <a routerLink="/devolucoes" class="atalho">
-        <div class="atalho-icone devolucoes-icone">
-          <span>DE</span>
-        </div>
-
-        <div class="atalho-conteudo">
-          <h3>Devoluções</h3>
-          <p>Consulte os registros de devolução.</p>
-        </div>
-
-        <span class="atalho-link">Acessar</span>
-      </a>
+  <!-- Boas-vindas -->
+  <section class="welcome-banner">
+    <div>
+      <span class="section-label">PAINEL PRINCIPAL</span>
+      <h1>Bem-vindo à Biblioteca Fácil!</h1>
+      <p>
+        Acompanhe os indicadores da biblioteca e gerencie seu acervo
+        em um só lugar.
+      </p>
     </div>
   </section>
 
-  <footer class="inicio-footer">
-    <p>Biblioteca Fácil · Sistema de gerenciamento de biblioteca</p>
+  <!-- Indicadores -->
+  <section class="dashboard-section">
+    <div class="section-heading">
+      <div>
+        <h2>Visão geral</h2>
+        <p>Resumo das informações cadastradas no sistema.</p>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+
+      <article class="summary-card">
+        <div class="summary-icon books-icon">LI</div>
+        <div>
+          <span>Total de livros</span>
+          <strong>{{ totalLivros }}</strong>
+          <small>Títulos cadastrados</small>
+        </div>
+      </article>
+
+      <article class="summary-card">
+        <div class="summary-icon copies-icon">EX</div>
+        <div>
+          <span>Exemplares</span>
+          <strong>{{ exemplaresCadastrados }}</strong>
+          <small>Unidades cadastradas</small>
+        </div>
+      </article>
+
+      <article class="summary-card">
+        <div class="summary-icon users-icon">US</div>
+        <div>
+          <span>Usuários</span>
+          <strong>{{ totalUsuarios }}</strong>
+          <small>Leitores cadastrados</small>
+        </div>
+      </article>
+
+      <article class="summary-card">
+        <div class="summary-icon loans-icon">EM</div>
+        <div>
+          <span>Empréstimos ativos</span>
+          <strong>{{ emprestimosAtivos }}</strong>
+          <small>Em andamento</small>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Gráficos -->
+  <section class="charts-grid">
+
+    <article class="dashboard-card">
+      <div class="card-heading">
+        <div>
+          <h2>Empréstimos por mês</h2>
+          <p>Movimentação dos últimos seis meses.</p>
+        </div>
+      </div>
+
+      <div class="monthly-chart">
+        @for (mes of dadosMensais; track mes.mes) {
+          <div class="chart-column">
+            <strong>{{ mes.quantidade }}</strong>
+
+            <div class="chart-bar-area">
+              <div
+                class="chart-bar"
+                [style.height.%]="mes.percentual || 2">
+              </div>
+            </div>
+
+            <span>{{ mes.mes }}</span>
+          </div>
+        }
+      </div>
+    </article>
+
+    <article class="dashboard-card">
+      <div class="card-heading">
+        <div>
+          <h2>Situação dos empréstimos</h2>
+          <p>Distribuição dos registros.</p>
+        </div>
+      </div>
+
+      <div class="loan-summary">
+
+        <div class="loan-summary-item">
+          <div class="loan-summary-label">
+            <span class="status-dot active-dot"></span>
+            <span>Ativos</span>
+          </div>
+          <strong>{{ emprestimosAtivos }}</strong>
+        </div>
+
+        <div class="loan-summary-item">
+          <div class="loan-summary-label">
+            <span class="status-dot overdue-dot"></span>
+            <span>Atrasados</span>
+          </div>
+          <strong>{{ emprestimosAtrasados }}</strong>
+        </div>
+
+        <div class="loan-summary-item">
+          <div class="loan-summary-label">
+            <span class="status-dot returned-dot"></span>
+            <span>Devolvidos</span>
+          </div>
+          <strong>{{ emprestimosDevolvidos }}</strong>
+        </div>
+
+        <div class="status-progress">
+          <div
+            class="progress-active"
+            [style.width.%]="percentualAtivos">
+          </div>
+
+          <div
+            class="progress-overdue"
+            [style.width.%]="percentualAtrasados">
+          </div>
+
+          <div
+            class="progress-returned"
+            [style.width.%]="percentualDevolvidos">
+          </div>
+        </div>
+
+        <small>Total de {{ totalEmprestimos }} empréstimos registrados</small>
+
+      </div>
+    </article>
+
+  </section>
+
+  <!-- Últimos empréstimos -->
+  <section class="dashboard-card recent-loans">
+
+    <div class="card-heading">
+      <div>
+        <h2>Últimos empréstimos</h2>
+        <p>Confira as movimentações mais recentes.</p>
+      </div>
+
+      <a routerLink="/emprestimos" class="view-all">
+        Ver todos
+      </a>
+    </div>
+
+    @if (ultimosEmprestimos.length > 0) {
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Livro</th>
+              <th>Usuário</th>
+              <th>Data do empréstimo</th>
+              <th>Devolução prevista</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (emprestimo of ultimosEmprestimos; track emprestimo._id) {
+              <tr>
+                <td class="book-title">
+                  {{ emprestimo.tituloLivro }}
+                </td>
+
+                <td>{{ emprestimo.nomeUsuario }}</td>
+
+                <td>
+                  {{ emprestimo.dataEmprestimo | date:'dd/MM/yyyy':'UTC' }}
+                </td>
+
+                <td>
+                  {{ emprestimo.dataPrevistaDevolucao | date:'dd/MM/yyyy':'UTC' }}
+                </td>
+
+                <td>
+                  @if (emprestimo.status === 'ativo') {
+                    <span class="status-badge status-active">Ativo</span>
+                  } @else if (emprestimo.status === 'atrasado') {
+                    <span class="status-badge status-overdue">Atrasado</span>
+                  } @else {
+                    <span class="status-badge status-returned">Devolvido</span>
+                  }
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    } @else {
+      <div class="empty-state">
+        <p>Nenhum empréstimo registrado até o momento.</p>
+      </div>
+    }
+
+  </section>
+
+  <!-- Acesso rápido -->
+  <section class="dashboard-section">
+    <div class="section-heading">
+      <div>
+        <h2>Acesso rápido</h2>
+        <p>Selecione uma área para continuar.</p>
+      </div>
+    </div>
+
+    <div class="quick-access-grid">
+
+      <a routerLink="/livros" class="quick-access-card">
+        <span class="quick-icon books-icon">LI</span>
+        <div>
+          <strong>Livros</strong>
+          <small>Consultar e organizar o acervo.</small>
+        </div>
+        <span class="access-arrow">→</span>
+      </a>
+
+      <a routerLink="/usuarios" class="quick-access-card">
+        <span class="quick-icon users-icon">US</span>
+        <div>
+          <strong>Usuários</strong>
+          <small>Gerenciar leitores cadastrados.</small>
+        </div>
+        <span class="access-arrow">→</span>
+      </a>
+
+      <a routerLink="/emprestimos" class="quick-access-card">
+        <span class="quick-icon loans-icon">EM</span>
+        <div>
+          <strong>Empréstimos</strong>
+          <small>Consultar e registrar empréstimos.</small>
+        </div>
+        <span class="access-arrow">→</span>
+      </a>
+
+      <a routerLink="/devolucoes" class="quick-access-card">
+        <span class="quick-icon returned-icon">DE</span>
+        <div>
+          <strong>Devoluções</strong>
+          <small>Consultar registros de devolução.</small>
+        </div>
+        <span class="access-arrow">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <footer class="dashboard-footer">
+    Biblioteca Fácil · Sistema de gerenciamento de biblioteca
   </footer>
-</section>
+
+</div>

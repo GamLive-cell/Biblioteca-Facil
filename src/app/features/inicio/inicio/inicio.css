@@ -1,191 +1,579 @@
+
 :host {
   display: block;
+  width: 100%;
+  color: #17324f;
 }
 
-.inicio-container {
-  width: min(1180px, calc(100% - 40px));
+.dashboard {
+  width: min(100%, 1120px);
   margin: 0 auto;
-  color: #203044;
+  padding: 28px 24px 20px;
+  box-sizing: border-box;
 }
 
-.boas-vindas {
-  margin-bottom: 32px;
-  padding: 30px 32px;
-  border-radius: 14px;
-  background: linear-gradient(115deg, #183b63, #245783);
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(24, 59, 99, 0.12);
+
+/* Boas-vindas */
+
+.welcome-banner {
+  position: relative;
+  overflow: hidden;
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  padding: 32px 38px;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  color: #ffffff;
+  background: linear-gradient(110deg, #12365b 0%, #205783 65%, #3279a5 100%);
+  box-shadow: 0 8px 22px rgba(23, 50, 79, 0.14);
 }
 
-.subtitulo {
+.welcome-banner::after {
+  content: "B";
+  position: absolute;
+  right: 65px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 155px;
+  height: 155px;
+  border: 2px solid rgba(255, 255, 255, 0.13);
+  border-radius: 35px;
+  color: rgba(255, 255, 255, 0.10);
+  font-size: 110px;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.welcome-banner > div {
+  position: relative;
+  z-index: 1;
+  max-width: 75%;
+}
+
+.section-label {
   display: inline-block;
   margin-bottom: 12px;
-  color: #c7d8e9;
-  font-size: 0.75rem;
-  font-weight: 750;
-  letter-spacing: 0.12em;
+  color: #c7e0f8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
 }
 
-.boas-vindas h1 {
-  margin: 0 0 12px;
-  color: #fff;
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
+.welcome-banner h1 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: clamp(25px, 4vw, 34px);
+  font-weight: 750;
+  letter-spacing: -0.7px;
+}
+
+.welcome-banner p {
+  margin: 0;
+  color: #e3edf7;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .welcome-banner {
+    min-height: 150px;
+    padding: 25px 20px;
+  }
+
+  .welcome-banner > div {
+    max-width: 100%;
+  }
+
+  .welcome-banner::after {
+    right: -45px;
+    opacity: 0.5;
+  }
+}
+
+
+.section-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #c7e0f8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.welcome-banner h1 {
+  margin: 0 0 10px;
+  font-size: clamp(25px, 4vw, 34px);
+  font-weight: 750;
+  letter-spacing: -0.7px;
+}
+
+.welcome-banner p {
+  margin: 0;
+  color: #e3edf7;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Títulos das seções */
+
+.dashboard-section {
+  margin-bottom: 30px;
+}
+
+.section-heading,
+.card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 17px;
+}
+
+.section-heading h2,
+.card-heading h2 {
+  margin: 0 0 5px;
+  color: #17324f;
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.section-heading p,
+.card-heading p {
+  margin: 0;
+  color: #75869a;
+  font-size: 13px;
+}
+
+/* Cards de resumo */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.summary-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+  padding: 21px 17px;
+  background: #fff;
+  border: 1px solid #dce6ef;
+  border-radius: 13px;
+  box-shadow: 0 4px 13px rgba(23, 50, 79, 0.035);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(23, 50, 79, 0.08);
+}
+
+.summary-icon,
+.quick-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.summary-card > div:last-child {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 3px;
+}
+
+.summary-card span {
+  color: #687c91;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.summary-card strong {
+  color: #17324f;
+  font-size: 27px;
   line-height: 1.2;
 }
 
-.boas-vindas p {
-  max-width: 650px;
-  margin: 0;
-  color: #e3edf7;
-  font-size: 1rem;
-  line-height: 1.7;
+.summary-card small {
+  color: #91a0af;
+  font-size: 11px;
 }
 
-.resumo h2 {
-  margin: 0 0 8px;
-  color: #183b63;
-  font-size: 1.4rem;
+.books-icon {
+  color: #245681;
+  background: #e7f0f8;
 }
 
-.descricao {
-  margin: 0 0 22px;
-  color: #6b7a8c;
+.copies-icon {
+  color: #167b68;
+  background: #e3f4ee;
 }
 
-.atalhos {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+.users-icon {
+  color: #16806b;
+  background: #e4f4ed;
 }
 
-.atalho {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  min-width: 0;
-  padding: 22px;
-  border: 1px solid #d9e2ec;
-  border-radius: 12px;
-  background: #fff;
-  color: #203044;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(24, 59, 99, 0.05);
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+.loans-icon {
+  color: #a36a0c;
+  background: #fff2d9;
 }
 
-.atalho:hover {
-  border-color: #9bb8d3;
-  box-shadow: 0 8px 22px rgba(24, 59, 99, 0.1);
-  transform: translateY(-2px);
-}
-
-.atalho-icone {
-  display: flex;
-  flex: 0 0 50px;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 11px;
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
-
-.livros-icone {
-  color: #245783;
-  background: #e8f0f8;
-}
-
-.usuarios-icone {
-  color: #17634a;
-  background: #e5f5ed;
-}
-
-.emprestimos-icone {
-  color: #805b12;
-  background: #fff3d8;
-}
-
-.devolucoes-icone {
-  color: #6941a5;
+.returned-icon {
+  color: #7551b4;
   background: #f0e9fc;
 }
 
-.atalho-conteudo {
-  flex: 1;
+/* Área dos gráficos */
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 17px;
+  margin-bottom: 30px;
+}
+
+.dashboard-card {
   min-width: 0;
+  padding: 23px;
+  background: #fff;
+  border: 1px solid #dce6ef;
+  border-radius: 14px;
+  box-shadow: 0 4px 13px rgba(23, 50, 79, 0.035);
 }
 
-.atalho-conteudo h3 {
-  margin: 0 0 5px;
-  color: #183b63;
-  font-size: 1.05rem;
+.dashboard-card .card-heading {
+  margin-bottom: 25px;
 }
 
-.atalho-conteudo p {
-  margin: 0;
-  color: #6b7a8c;
-  font-size: 0.88rem;
-  line-height: 1.5;
+/* Gráfico mensal */
+
+.monthly-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 12px;
+  height: 190px;
+  padding-top: 12px;
+  border-bottom: 1px solid #e8eef4;
 }
 
-.atalho-link {
-  flex-shrink: 0;
-  color: #245783;
-  font-size: 0.82rem;
+.chart-column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 8px;
+}
+
+.chart-column strong {
+  color: #526b83;
+  font-size: 12px;
+}
+
+.chart-bar-area {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 135px;
+}
+
+.chart-bar {
+  width: min(38px, 75%);
+  min-height: 3px;
+  border-radius: 7px 7px 2px 2px;
+  background: linear-gradient(180deg, #4c91c7, #1d527f);
+  transition: height 0.3s ease;
+}
+
+.chart-column > span {
+  color: #8191a2;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+/* Situação dos empréstimos */
+
+.loan-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  padding-top: 5px;
+}
+
+.loan-summary-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loan-summary-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #60758a;
+  font-size: 13px;
+}
+
+.loan-summary-item strong {
+  color: #17324f;
+  font-size: 18px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.active-dot {
+  background: #249b76;
+}
+
+.overdue-dot {
+  background: #e19a35;
+}
+
+.returned-dot {
+  background: #548dc4;
+}
+
+.status-progress {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 11px;
+  border-radius: 20px;
+  background: #edf1f5;
+}
+
+.progress-active {
+  background: #249b76;
+}
+
+.progress-overdue {
+  background: #e19a35;
+}
+
+.progress-returned {
+  background: #548dc4;
+}
+
+.loan-summary > small {
+  color: #8a99a8;
+  font-size: 11px;
+}
+
+/* Últimos empréstimos */
+
+.recent-loans {
+  margin-bottom: 30px;
+}
+
+.view-all {
+  color: #28618c;
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.view-all:hover {
+  color: #173d66;
+  text-decoration: underline;
+}
+
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+thead {
+  background: #f5f8fb;
+}
+
+th {
+  padding: 13px 12px;
+  color: #74879a;
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+td {
+  padding: 15px 12px;
+  color: #65788b;
+  font-size: 12px;
+  border-bottom: 1px solid #edf1f5;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: #f9fbfd;
+}
+
+.book-title {
+  color: #173d66;
+  font-weight: 700;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 10px;
   font-weight: 750;
 }
 
-.inicio-footer {
-  margin-top: 34px;
-  padding: 18px 0;
-  border-top: 1px solid #d9e2ec;
+.status-active {
+  color: #187653;
+  background: #e3f5ec;
+}
+
+.status-overdue {
+  color: #a66a13;
+  background: #fff1d9;
+}
+
+.status-returned {
+  color: #326caa;
+  background: #e8f1fc;
+}
+
+.empty-state {
+  padding: 28px 12px;
+  color: #8494a5;
+  font-size: 13px;
   text-align: center;
 }
 
-.inicio-footer p {
-  margin: 0;
-  color: #6b7a8c;
-  font-size: 0.82rem;
+/* Acesso rápido */
+
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
-@media (max-width: 760px) {
-  .inicio-container {
-    width: calc(100% - 24px);
+.quick-access-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 17px;
+  background: #fff;
+  border: 1px solid #dce6ef;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.quick-access-card:hover {
+  transform: translateY(-2px);
+  border-color: #9dbbd4;
+}
+
+.quick-access-card > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  gap: 5px;
+}
+
+.quick-access-card strong {
+  color: #173d66;
+  font-size: 14px;
+}
+
+.quick-access-card small {
+  overflow: hidden;
+  color: #7b8da0;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.access-arrow {
+  color: #28618c;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.dashboard-footer {
+  padding: 22px 0 10px;
+  border-top: 1px solid #dce6ef;
+  color: #8797a7;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Responsividade */
+
+@media (max-width: 1050px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .boas-vindas {
-    margin-bottom: 26px;
-    padding: 24px;
-  }
-
-  .atalhos {
+  .charts-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .atalho {
-    padding: 17px;
-    gap: 12px;
   }
 }
 
-@media (max-width: 420px) {
-  .boas-vindas {
-    padding: 20px;
+@media (max-width: 600px) {
+  .dashboard {
+    padding: 18px 14px;
   }
 
-  .atalho-icone {
-    flex-basis: 42px;
-    width: 42px;
-    height: 42px;
+  .welcome-banner {
+    padding: 25px 20px;
   }
 
-  .atalho-link {
-    font-size: 0.75rem;
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-access-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    padding: 17px;
+  }
+
+  .monthly-chart {
+    gap: 5px;
+  }
+
+  .section-heading h2,
+  .card-heading h2 {
+    font-size: 17px;
   }
 }
