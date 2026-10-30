@@ -1,44 +1,39 @@
-
 <section class="form-container">
-
-  <div class="form-cabecalho">
-    <h2>Registrar Devolução</h2>
-    <p>Selecione o empréstimo e informe os dados da devolução.</p>
-  </div>
+  <h2>Registrar Devolução</h2>
 
   <form #form="ngForm" (ngSubmit)="salvar()">
-
     <div class="campo">
-      <label for="emprestimoId">Empréstimo *</label>
-
-      <select
+      <label for="emprestimoId">ID do empréstimo *</label>
+      <input
         id="emprestimoId"
         name="emprestimoId"
         [(ngModel)]="emprestimoId"
         required
-      >
-        <option value="" disabled>
-          Selecione um empréstimo
-        </option>
+      />
+    </div>
 
-        @for (emprestimo of emprestimosDisponiveis; track emprestimo._id) {
-          <option [value]="emprestimo._id">
-            {{ emprestimo.tituloLivro }} — {{ emprestimo.nomeUsuario }}
-            ({{ emprestimo._id }})
-          </option>
-        }
-      </select>
+    <div class="campo">
+      <label for="tituloLivro">Título do livro *</label>
+      <input
+        id="tituloLivro"
+        name="tituloLivro"
+        [(ngModel)]="tituloLivro"
+        required
+      />
+    </div>
 
-      @if (emprestimosDisponiveis.length === 0) {
-        <small class="aviso">
-          Não existem empréstimos disponíveis para devolução.
-        </small>
-      }
+    <div class="campo">
+      <label for="nomeUsuario">Nome do usuário *</label>
+      <input
+        id="nomeUsuario"
+        name="nomeUsuario"
+        [(ngModel)]="nomeUsuario"
+        required
+      />
     </div>
 
     <div class="campo">
       <label for="dataDevolucao">Data da devolução *</label>
-
       <input
         id="dataDevolucao"
         name="dataDevolucao"
@@ -50,13 +45,10 @@
 
     <div class="campo">
       <label for="observacao">Observação</label>
-
       <textarea
         id="observacao"
         name="observacao"
         [(ngModel)]="observacao"
-        placeholder="Ex.: Livro devolvido em bom estado"
-        rows="4"
       ></textarea>
     </div>
 
@@ -69,13 +61,7 @@
         Cancelar
       </a>
 
-      <button
-        type="submit"
-        [disabled]="emprestimosDisponiveis.length === 0"
-      >
-        Registrar devolução
-      </button>
+      <button type="submit">Registrar devolução</button>
     </div>
-
   </form>
 </section>
