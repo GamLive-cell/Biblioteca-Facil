@@ -1,0 +1,12 @@
+:host { display: block; }
+.form-container { width: min(650px, calc(100% - 32px)); margin: 0 auto; padding: 26px; border: 1px solid var(--bf-border); border-radius: var(--bf-radius); background: #fff; box-shadow: var(--bf-shadow); color: var(--bf-text); }
+.form-container h1, .form-container h2 { margin: 0 0 22px; color: var(--bf-navy-dark); }
+.campo { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.campo label { margin-bottom: 0; }
+.campo textarea { min-height: 90px; }
+.erro { padding: 11px 13px; border-radius: 7px; color: var(--bf-danger); background: var(--bf-danger-bg); }
+.acoes { display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+.botao-cancelar { display: inline-flex; align-items: center; justify-content: center; padding: 10px 15px; border-radius: 7px; color: var(--bf-text); background: #e8edf3; text-decoration: none; font-weight: 650; }
+.botao-cancelar:hover { background: #dbe4ed; }
+.acoes button { min-height: 42px; }
+@media (max-width: 600px) { .form-container { padding: 20px; } .acoes { flex-direction: column-reverse; align-items: stretch; } .acoes button, .botao-cancelar { width: 100%; } }

@@ -1,0 +1,15 @@
+:host { display: block; }
+.emprestimos-container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; color: var(--bf-text); }
+.cabecalho { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; }
+.cabecalho h1, .cabecalho h2 { margin: 0 0 6px; color: var(--bf-navy-dark); }
+.cabecalho p { margin: 0; color: var(--bf-muted); }
+.botao-novo { display: inline-flex; align-items: center; justify-content: center; padding: 10px 15px; color: #fff; background: var(--bf-navy); border-radius: 7px; text-decoration: none; font-weight: 700; }
+.botao-novo:hover { background: var(--bf-navy-dark); }
+.tabela-container { overflow-x: auto; border: 1px solid var(--bf-border); border-radius: var(--bf-radius); background: #fff; box-shadow: var(--bf-shadow); }
+.tabela-container table { min-width: 900px; }
+.status { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: .78rem; font-weight: 750; white-space: nowrap; }
+.status.ativo { color: #1d4ed8; background: #e7efff; }
+.status.devolvido { color: var(--bf-success); background: var(--bf-success-bg); }
+.status.atrasado { color: var(--bf-danger); background: var(--bf-danger-bg); }
+.vazio { padding: 22px; border: 1px dashed var(--bf-border); border-radius: var(--bf-radius); color: var(--bf-muted); background: #fff; }
+@media (max-width: 640px) { .emprestimos-container { width: calc(100% - 24px); } .cabecalho { align-items: flex-start; } }

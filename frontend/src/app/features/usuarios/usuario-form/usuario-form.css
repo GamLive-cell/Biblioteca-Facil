@@ -1,0 +1,10 @@
+:host { display: block; }
+.form-container, .usuario-form-container, .form-usuario { width: min(700px, calc(100% - 32px)); margin: 0 auto; padding: 26px; border: 1px solid var(--bf-border); border-radius: var(--bf-radius); background: #fff; box-shadow: var(--bf-shadow); }
+.form-container h1, .form-container h2, .usuario-form-container h1, .usuario-form-container h2, .form-usuario h1, .form-usuario h2 { margin-bottom: 20px; }
+.form-container form, .usuario-form-container form, .form-usuario form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.form-container .campo, .usuario-form-container .campo, .form-usuario .campo { display: flex; flex-direction: column; min-width: 0; }
+.form-container .campo:has(textarea), .form-container .campo:has(select), .usuario-form-container .campo:has(textarea), .usuario-form-container .campo:has(select), .form-usuario .campo:has(textarea), .form-usuario .campo:has(select) { grid-column: 1 / -1; }
+.form-container .acoes, .usuario-form-container .acoes, .form-usuario .acoes { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; grid-column: 1 / -1; margin-top: 8px; }
+.form-container .botao-cancelar, .usuario-form-container .botao-cancelar, .form-usuario .botao-cancelar { display: inline-flex; align-items: center; justify-content: center; padding: 10px 15px; border-radius: 7px; color: var(--bf-text); background: #e8edf3; text-decoration: none; font-weight: 650; }
+.form-container .erro, .usuario-form-container .erro, .form-usuario .erro { grid-column: 1 / -1; padding: 10px 12px; border-radius: 7px; background: var(--bf-danger-bg); }
+@media (max-width: 620px) { .form-container, .usuario-form-container, .form-usuario { padding: 20px; } .form-container form, .usuario-form-container form, .form-usuario form { grid-template-columns: 1fr; } }

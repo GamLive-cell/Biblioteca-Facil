@@ -1,0 +1,6 @@
+import { Component, inject, signal } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { AuthMockService } from './auth-mock.service';
+@Component({selector:'app-cadastro',standalone:true,imports:[ReactiveFormsModule,RouterLink],templateUrl:'./cadastro.html',styleUrl:'./auth.css'})
+export class Cadastro {private auth=inject(AuthMockService);private router=inject(Router);erro=signal('');form=new FormGroup({nome:new FormControl('',{nonNullable:true,validators:[Validators.required,Validators.minLength(3)]}),email:new FormControl('',{nonNullable:true,validators:[Validators.required,Validators.email]}),senha:new FormControl('',{nonNullable:true,validators:[Validators.required,Validators.minLength(6)]}),confirmarSenha:new FormControl('',{nonNullable:true,validators:[Validators.required]})});cadastrar():void{this.erro.set('');this.form.markAllAsTouched();if(this.form.invalid)return;const v=this.form.getRawValue();if(v.senha!==v.confirmarSenha){this.erro.set('As senhas não conferem.');return;}const msg=this.auth.cadastrar(v.nome,v.email,v.senha);if(msg){this.erro.set(msg);return;}this.router.navigate(['/login']);}}

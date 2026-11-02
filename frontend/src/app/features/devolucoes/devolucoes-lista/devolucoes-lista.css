@@ -1,0 +1,12 @@
+:host { display: block; }
+.devolucoes-container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; color: var(--bf-text); }
+.cabecalho { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; }
+.cabecalho h1, .cabecalho h2 { margin: 0; color: var(--bf-navy-dark); }
+.cabecalho p { margin: 6px 0 0; color: var(--bf-muted); }
+.botao-nova { display: inline-flex; align-items: center; justify-content: center; padding: 10px 15px; border-radius: 7px; color: #fff; background: var(--bf-navy); text-decoration: none; font-weight: 700; }
+.botao-nova:hover { background: var(--bf-navy-dark); }
+.devolucoes-container table { min-width: 760px; }
+.devolucoes-container table, .devolucoes-container .tabela-container { border: 1px solid var(--bf-border); border-radius: var(--bf-radius); overflow: hidden; box-shadow: var(--bf-shadow); }
+.devolucoes-container .tabela-container { overflow-x: auto; background: #fff; }
+.devolucoes-container > p { color: var(--bf-muted); }
+@media (max-width: 640px) { .devolucoes-container { width: calc(100% - 24px); } }

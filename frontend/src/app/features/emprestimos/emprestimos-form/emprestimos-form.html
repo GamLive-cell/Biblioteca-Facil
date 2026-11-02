@@ -1,0 +1,98 @@
+<section class="form-container">
+  <h2>Novo Empréstimo</h2>
+  <p class="descricao">
+    Preencha os dados para registrar um empréstimo de livro.
+  </p>
+
+  <form #form="ngForm" (ngSubmit)="salvar()">
+    <div class="campo">
+      <label for="livroId">ID do livro *</label>
+      <input
+        id="livroId"
+        name="livroId"
+        [(ngModel)]="livroId"
+        required
+        placeholder="Ex.: liv1"
+      />
+    </div>
+
+    <div class="campo">
+      <label for="tituloLivro">Título do livro *</label>
+      <input
+        id="tituloLivro"
+        name="tituloLivro"
+        [(ngModel)]="tituloLivro"
+        required
+        placeholder="Digite o título do livro"
+      />
+    </div>
+
+    <div class="campo">
+      <label for="usuarioId">ID do usuário *</label>
+      <input
+        id="usuarioId"
+        name="usuarioId"
+        [(ngModel)]="usuarioId"
+        required
+        placeholder="Ex.: usr1"
+      />
+    </div>
+
+    <div class="campo">
+      <label for="nomeUsuario">Nome do usuário *</label>
+      <input
+        id="nomeUsuario"
+        name="nomeUsuario"
+        [(ngModel)]="nomeUsuario"
+        required
+        placeholder="Digite o nome do usuário"
+      />
+    </div>
+
+    <div class="campo">
+      <label for="dataEmprestimo">Data do empréstimo *</label>
+      <input
+        id="dataEmprestimo"
+        name="dataEmprestimo"
+        type="date"
+        [(ngModel)]="dataEmprestimo"
+        required
+      />
+    </div>
+
+    <div class="campo">
+      <label for="dataPrevistaDevolucao">
+        Data prevista de devolução *
+      </label>
+      <input
+        id="dataPrevistaDevolucao"
+        name="dataPrevistaDevolucao"
+        type="date"
+        [(ngModel)]="dataPrevistaDevolucao"
+        required
+      />
+    </div>
+
+    <div class="campo">
+      <label for="observacao">Observação</label>
+      <textarea
+        id="observacao"
+        name="observacao"
+        [(ngModel)]="observacao"
+        placeholder="Observações sobre o empréstimo (opcional)"
+      ></textarea>
+    </div>
+
+    @if (erro) {
+      <p class="erro">{{ erro }}</p>
+    }
+
+    <div class="acoes">
+      <a routerLink="/emprestimos" class="botao-cancelar">
+        Cancelar
+      </a>
+
+      <button type="submit">Registrar empréstimo</button>
+    </div>
+  </form>
+</section>
