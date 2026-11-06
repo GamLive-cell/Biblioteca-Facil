@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { Emprestimo } from '../emprestimo.model';
 import { EmprestimosMock } from '../emprestimos-mock';
 
@@ -15,30 +15,29 @@ import { EmprestimosMock } from '../emprestimos-mock';
 export class EmprestimosLista implements OnInit {
   emprestimos: Emprestimo[] = [];
 
-  constructor(
-    private emprestimosMock: EmprestimosMock,
-    private router: Router
-  ) {}
+  constructor(private emprestimosMock: EmprestimosMock) {}
 
   ngOnInit(): void {
-    this.carregarEmprestimos();
+    this.atualizarLista();
   }
 
-  carregarEmprestimos(): void {
+  atualizarLista(): void {
     this.emprestimos = this.emprestimosMock.listar();
   }
 
-  editar(id: string): void {
-    this.router.navigate(['/emprestimos', id, 'editar']);
-  }
+  excluir(id: string): void {
+    const confirmar = window.confirm(
+      'Tem certeza que deseja excluir este empréstimo?'
+    );
 
-  concluir(id: string): void {
-    const atualizado = this.emprestimosMock.atualizar(id, {
-      status: 'devolvido',
-    });
+    if (!confirmar) {
+      return;
+    }
 
-    if (atualizado) {
-      this.carregarEmprestimos();
+    const removido = this.emprestimosMock.remover(id);
+
+    if (removido) {
+      this.atualizarLista();
     }
   }
 }

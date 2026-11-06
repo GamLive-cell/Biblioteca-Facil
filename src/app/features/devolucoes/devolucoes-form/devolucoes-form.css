@@ -1,68 +1,66 @@
-
-/* DEVOLUÇÕES — FORMULÁRIO */
-
 .form-container {
-  width: 100%;
-  max-width: 650px;
-  margin: 20px auto;
-  padding: 30px;
-  border: 1px solid var(--bf-border, #dce5ee);
-  border-radius: 14px;
-  background: #fff;
-  box-shadow: var(--bf-shadow, 0 4px 14px rgba(23, 50, 79, 0.06));
-  color: var(--bf-text, #26384a);
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
+  color: #333;
 }
 
 .form-container h2 {
-  margin: 0 0 28px;
-  color: var(--bf-navy, #183b63);
-  font-size: 24px;
-  font-weight: 800;
+  margin-bottom: 24px;
+  color: #1f2937;
 }
 
 .campo {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .campo label {
-  color: var(--bf-text, #26384a);
-  font-size: 13px;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .campo input,
 .campo textarea {
-  width: 100%;
-  padding: 13px 14px;
-  border: 1px solid var(--bf-border, #dce5ee);
-  border-radius: 8px;
-  outline: none;
-  background: #fff;
-  color: var(--bf-text, #26384a);
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
   font: inherit;
-  font-size: 13px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .campo input:focus,
 .campo textarea:focus {
-  border-color: var(--bf-blue, #2c5e8d);
-  box-shadow: 0 0 0 3px rgba(44, 94, 141, 0.12);
+  outline: 2px solid #64748b;
+  border-color: #64748b;
 }
 
 .campo textarea {
-  min-height: 110px;
+  min-height: 90px;
   resize: vertical;
 }
 
 .erro {
+  color: #b91c1c;
   margin-bottom: 16px;
-  color: var(--bf-danger, #b42332);
-  font-size: 13px;
+}
+
+.form-container button {
+  padding: 12px 18px;
+  background-color: #1f2937;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-container button:hover {
+  background-color: #374151;
 }
 
 .acoes {
@@ -70,64 +68,26 @@
   justify-content: flex-end;
   align-items: center;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 24px;
   flex-wrap: wrap;
 }
 
-.form-container button {
-  min-height: 43px;
-  padding: 0 20px;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  background: var(--bf-navy, #183b63);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 700;
-  transition: 0.2s ease;
-}
-
-.form-container button:hover {
-  background: var(--bf-blue, #2c5e8d);
-  transform: translateY(-1px);
-}
-
 .botao-cancelar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 43px;
-  padding: 0 20px;
-  border-radius: 8px;
-  color: var(--bf-text, #26384a);
-  background: #edf2f7;
+  display: inline-block;
+  padding: 12px 18px;
+  background-color: #e5e7eb;
+  color: #1f2937;
   text-decoration: none;
-  font-size: 13px;
-  font-weight: 700;
-  transition: 0.2s ease;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.2s ease;
 }
 
 .botao-cancelar:hover {
-  background: #dce5ee;
+  background-color: #d1d5db;
 }
 
 .acoes button {
   margin: 0;
-}
-
-@media (max-width: 600px) {
-  .form-container {
-    margin: 10px auto;
-    padding: 20px;
-  }
-
-  .acoes {
-    flex-direction: column-reverse;
-    align-items: stretch;
-  }
-
-  .acoes button,
-  .botao-cancelar {
-    width: 100%;
-  }
 }

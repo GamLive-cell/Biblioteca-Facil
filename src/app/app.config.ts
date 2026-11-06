@@ -1,10 +1,16 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners
+} from '@angular/core';
+
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
+
 import { UsuariosService } from './features/usuarios/usuarios.service';
 import { UsuariosMockService } from './features/usuarios/usuarios-mock.service';
+
 import { LivrosService } from './features/livros/livros.service';
 import { LivrosMockService } from './features/livros/livros-mock.service';
 

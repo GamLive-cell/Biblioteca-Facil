@@ -1,12 +1,7 @@
-
 <section class="form-container">
-  <h2>{{ emprestimoId ? 'Editar Empréstimo' : 'Novo Empréstimo' }}</h2>
-
+  <h2>Novo Empréstimo</h2>
   <p class="descricao">
-    {{ emprestimoId
-      ? 'Atualize as informações do empréstimo.'
-      : 'Preencha os dados para registrar um empréstimo de livro.'
-    }}
+    Preencha os dados para registrar um empréstimo de livro.
   </p>
 
   <form #form="ngForm" (ngSubmit)="salvar()">
@@ -89,7 +84,7 @@
     </div>
 
     @if (erro) {
-      <p class="erro" role="alert">{{ erro }}</p>
+      <p class="erro">{{ erro }}</p>
     }
 
     <div class="acoes">
@@ -97,9 +92,7 @@
         Cancelar
       </a>
 
-      <button type="submit">
-        {{ emprestimoId ? 'Salvar alterações' : 'Registrar empréstimo' }}
-      </button>
+      <button type="submit">Registrar empréstimo</button>
     </div>
   </form>
 </section>
