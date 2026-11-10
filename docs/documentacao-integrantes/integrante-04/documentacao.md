@@ -1,51 +1,69 @@
 # Registro individual de contribuição — Integrante 04
 
-> Preencher este documento individualmente. Apague as instruções entre colchetes antes da entrega final. Não inclua atividades que não realizou.
-
 ## 1. Identificação
 - **Projeto:** Biblioteca Fácil
 - **Grupo:** 2
-- **Integrante:** [nome completo]
-- **Papel/função no grupo:** [responsabilidade principal]
-- **Período de atuação:** [datas ou período aproximado, se conhecido]
+- **Integrante:** Fernanda Braga
+- **Papel/função no grupo:** Testes e Qualidade — Módulo de Empréstimos
+- **Período de atuação:** Durante o desenvolvimento do projeto (2026).
 
 ## 2. Responsabilidade assumida
-[Explique qual área ou resultado ficou sob sua responsabilidade e como essa responsabilidade foi combinada com o grupo.]
+
+Fiquei responsável pela área de Testes e Qualidade, verificando o funcionamento do sistema e identificando possíveis erros. Também fiquei responsável pelo módulo de Empréstimos, trabalhando na organização e implementação das funcionalidades relacionadas aos empréstimos de livros.
 
 ## 3. Atividades realizadas
-Liste atividades concretas, usando verbos de ação. Para cada uma, indique o que foi feito e qual foi o resultado.
 
 | Atividade | O que foi realizado | Resultado/evidência |
 |---|---|---|
-| [atividade 1] | [descrição] | [arquivo, tela, commit, teste ou documento] |
-| [atividade 2] | [descrição] | [evidência] |
-| [atividade 3] | [descrição] | [evidência] |
+| Desenvolvimento de Empréstimos | Trabalhei na criação e organização da listagem de empréstimos. | Arquivos HTML e TypeScript. |
+| Organização visual | Desenvolvi e ajustei o estilo da tela de empréstimos. | Arquivo CSS do módulo. |
+| Dados de empréstimos | Trabalhei com dados simulados para representar os empréstimos do sistema. | Arquivo EmprestimosMock. |
+| Integração de rotas | Trabalhei na configuração das rotas relacionadas às telas do módulo. | Arquivos de rotas. |
+| Testes e qualidade | Trabalhei na verificação do funcionamento e na identificação de possíveis problemas. | Revisão do funcionamento do sistema. |
 
 ## 4. Funcionalidades, módulos ou entregáveis relacionados
-[Indique os módulos, telas, componentes, endpoints, testes, documentos ou outras entregas em que trabalhou. Inclua caminhos do repositório quando possível.]
+
+- Módulo de Empréstimos.
+- Listagem de empréstimos.
+- Organização visual da tela de empréstimos.
+- Dados simulados de empréstimos (Mock).
+- Rotas de navegação relacionadas ao módulo.
+- Atividades de verificação e qualidade do sistema.
 
 ## 5. Tecnologias e ferramentas utilizadas
-- [tecnologia/ferramenta] — [como foi utilizada]
-- [tecnologia/ferramenta] — [como foi utilizada]
+
+- **Angular:** Desenvolvimento das telas e funcionalidades do sistema.
+- **TypeScript:** Implementação da lógica das funcionalidades.
+- **HTML:** Estruturação das páginas.
+- **CSS:** Estilização das telas.
+- **Git e GitHub:** Acompanhamento e organização do código do projeto.
+- **Visual Studio Code:** Ambiente utilizado para desenvolvimento.
 
 ## 6. Colaboração com a equipe
-[Explique com quem precisou alinhar informações, quais dependências existiam e como colaborou com os demais integrantes.]
+
+Durante o projeto, precisei alinhar o desenvolvimento do módulo de Empréstimos com os demais integrantes, principalmente para manter a compatibilidade com as outras partes do sistema. Também colaborei na identificação de problemas e na organização das funcionalidades para que o projeto funcionasse de forma integrada.
 
 ## 7. Dificuldades e soluções
+
 | Dificuldade | Como foi tratada | O que aprendeu |
 |---|---|---|
-| [dificuldade real] | [ação tomada] | [aprendizado] |
+| Problemas de integração entre as partes do sistema. | Conferindo os arquivos e ajustando o código necessário. | A importância de organizar e integrar corretamente o projeto. |
+| Erros durante o desenvolvimento das funcionalidades. | Analisando o código e procurando corrigir os problemas encontrados. | A importância de revisar e validar o sistema. |
 
 ## 8. Validação e evidências
-[Explique como verificou o resultado: build, teste, revisão, execução da tela, conferência de endpoint, revisão de documentação etc. Não declare testes que não executou.]
+
+Acompanhei o desenvolvimento e a verificação do módulo de Empréstimos, conferindo sua estrutura, organização, dados simulados e integração com as rotas do sistema. Também trabalhei na identificação de possíveis erros e ajustes necessários.
 
 ## 9. Resultado da contribuição
-[Resuma o que ficou entregue e em que estado: concluído, parcial, protótipo/mock ou pendente de integração.]
+
+Minha contribuição envolveu o desenvolvimento do módulo de Empréstimos e a responsabilidade pela área de Testes e Qualidade. Foram desenvolvidas e organizadas as telas, os estilos, os dados simulados e as rotas relacionadas ao módulo, além das atividades de verificação do sistema.
 
 ## 10. Aprendizados e melhorias futuras
-[Registre o que aprendeu e o que faria diferente numa próxima etapa.]
+
+Aprendi mais sobre Angular, TypeScript, organização de projetos, integração de módulos e importância dos testes durante o desenvolvimento. Em uma próxima etapa, buscaria aprofundar os testes automatizados e melhorar a documentação das funcionalidades.
 
 ---
+
 **Declaração do integrante:** este registro descreve as atividades que efetivamente realizei no projeto.
 
-**Data:** [dd/mm/aaaa]
+**Data:** 10/11/2026

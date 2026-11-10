@@ -1,51 +1,125 @@
 # Registro individual de contribuição — Integrante 03
 
-> Preencher este documento individualmente. Apague as instruções entre colchetes antes da entrega final. Não inclua atividades que não realizou.
-
 ## 1. Identificação
 - **Projeto:** Biblioteca Fácil
 - **Grupo:** 2
-- **Integrante:** [nome completo]
-- **Papel/função no grupo:** [responsabilidade principal]
-- **Período de atuação:** [datas ou período aproximado, se conhecido]
+- **Integrante:** Nicoly
+- **Papel/função no grupo:**  Login, Segurança e Empréstimos
+- **Período de atuação:** Durante o desenvolvimento do projeto (2026).
 
 ## 2. Responsabilidade assumida
-[Explique qual área ou resultado ficou sob sua responsabilidade e como essa responsabilidade foi combinada com o grupo.]
+
+Fiquei responsável pelo desenvolvimento das funcionalidades de Login, Segurança e Empréstimos do sistema Biblioteca Fácil, trabalhando na autenticação dos usuários, proteção das informações e gerenciamento dos empréstimos de livros.
 
 ## 3. Atividades realizadas
-Liste atividades concretas, usando verbos de ação. Para cada uma, indique o que foi feito e qual foi o resultado.
+Cadastro e login
 
-| Atividade | O que foi realizado | Resultado/evidência |
-|---|---|---|
-| [atividade 1] | [descrição] | [arquivo, tela, commit, teste ou documento] |
-| [atividade 2] | [descrição] | [evidência] |
-| [atividade 3] | [descrição] | [evidência] |
+Desenvolvimento das funcionalidades de cadastro e autenticação dos usuários.
 
+Estrutura de cadastro e login.
+
+Criptografia de senhas
+
+Implementação da criptografia para proteger as senhas cadastradas.
+
+Utilização do Bcrypt.
+
+Autenticação JWT
+
+Configuração da geração e validação de tokens de acesso.
+
+Sistema de autenticação com JWT.
+
+Proteção de rotas
+
+Implementação de mecanismos para restringir o acesso a determinadas rotas.
+
+Rotas protegidas por autenticação.
+
+Estrutura de empréstimos
+
+Criação da estrutura responsável por armazenar os empréstimos.
+
+Modelo de empréstimos.
+
+Criação e listagem
+
+Implementação das funcionalidades de registro e consulta de empréstimos.
+
+Recursos de criação e listagem.
+
+Status dos empréstimos
+
+Organização dos status e das regras de funcionamento dos empréstimos.
+
+Controle dos estados dos empréstimos.
 ## 4. Funcionalidades, módulos ou entregáveis relacionados
-[Indique os módulos, telas, componentes, endpoints, testes, documentos ou outras entregas em que trabalhou. Inclua caminhos do repositório quando possível.]
 
+Cadastro de usuários.
+
+Login e autenticação.
+
+Criptografia e proteção de senhas.
+
+Geração e validação de tokens JWT.
+
+Proteção de rotas do sistema.
+
+Registro e consulta de empréstimos.
+
+Controle dos status dos empréstimos.
+
+Regras relacionadas à disponibilidade dos livros.
 ## 5. Tecnologias e ferramentas utilizadas
-- [tecnologia/ferramenta] — [como foi utilizada]
-- [tecnologia/ferramenta] — [como foi utilizada]
 
+-JavaScript e TypeScript: Linguagens utilizadas no desenvolvimento.
+
+Node.js: Ambiente de execução do backend.
+
+NestJS: Framework utilizado na construção da API.
+
+MongoDB: Banco de dados utilizado para armazenar as informações.
+
+Bcrypt: Ferramenta utilizada para criptografia de senhas.
+
+JWT: Tecnologia utilizada para autenticação e controle de acesso
 ## 6. Colaboração com a equipe
-[Explique com quem precisou alinhar informações, quais dependências existiam e como colaborou com os demais integrantes.]
+
+Durante o projeto, precisei alinhar as funcionalidades de autenticação e empréstimos com os demais integrantes, garantindo que os módulos pudessem funcionar em conjunto. Também foi necessário considerar a integração entre usuários, livros e empréstimos, respeitando as regras de funcionamento do sistema.
 
 ## 7. Dificuldades e soluções
-| Dificuldade | Como foi tratada | O que aprendeu |
-|---|---|---|
-| [dificuldade real] | [ação tomada] | [aprendizado] |
 
+Analisando os arquivos e entendendo a organização do código.
+
+A importância de conhecer a estrutura antes de desenvolver.
+
+Implementação da autenticação e segurança.
+
+Estudando e revisando a lógica de login, criptografia e JWT.
+
+Como funciona a autenticação em sistemas.
+
+Controle da disponibilidade dos livros.
+
+Analisando as regras de negócio e revisando a lógica dos empréstimos.
+
+A importância de controlar corretamente a quantidade disponível.
 ## 8. Validação e evidências
-[Explique como verificou o resultado: build, teste, revisão, execução da tela, conferência de endpoint, revisão de documentação etc. Não declare testes que não executou.]
+
+A validação do trabalho envolveu a análise das funcionalidades desenvolvidas, da lógica de autenticação, da proteção das rotas e das regras dos empréstimos. Também foram consideradas as situações relacionadas à disponibilidade dos livros e aos diferentes status dos empréstimos.
 
 ## 9. Resultado da contribuição
-[Resuma o que ficou entregue e em que estado: concluído, parcial, protótipo/mock ou pendente de integração.]
+
+Minha contribuição envolveu o desenvolvimento dos recursos de cadastro e login, segurança e autenticação dos usuários, além da estrutura e das funcionalidades de empréstimos. Foram trabalhados os mecanismos de proteção de senhas, autenticação por JWT, proteção de rotas, criação e listagem de empréstimos e controle de seus status.
 
 ## 10. Aprendizados e melhorias futuras
-[Registre o que aprendeu e o que faria diferente numa próxima etapa.]
+
+Durante o projeto, aprendi mais sobre desenvolvimento backend, organização de código, utilização de banco de dados e segurança de sistemas. Também desenvolvi minha capacidade de resolver problemas e compreender como diferentes funcionalidades se conectam.
+
+Como melhorias futuras, seria interessante aprimorar os testes automatizados, reforçar as validações de segurança e aperfeiçoar o controle de disponibilidade dos livros e dos empréstimos.
 
 ---
+
 **Declaração do integrante:** este registro descreve as atividades que efetivamente realizei no projeto.
 
-**Data:** [dd/mm/aaaa]
+**Data:** 10/11/2026
