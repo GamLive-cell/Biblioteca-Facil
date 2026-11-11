@@ -122,4 +122,4 @@ Como melhorias futuras, seria interessante aprimorar os testes automatizados, re
 
 **Declaração do integrante:** este registro descreve as atividades que efetivamente realizei no projeto.
 
-**Data:** 10/11/2026
+**Data:** 10/11/2026 
