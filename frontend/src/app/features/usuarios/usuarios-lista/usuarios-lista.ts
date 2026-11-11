@@ -1,4 +1,5 @@
-﻿import { Component, computed, inject, signal } from '@angular/core';
+﻿
+import { Component, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioCard } from '../usuario-card/usuario-card';
 import { UsuariosService } from '../usuarios.service';
@@ -18,6 +19,7 @@ export class UsuariosLista {
   carregando = signal(false);
   erro = signal('');
   sucesso = signal('');
+  usuarioPendente = signal<string | null>(null);
 
   usuarios = computed(() => {
     const termo = this.pesquisa().trim().toLowerCase();
@@ -38,7 +40,20 @@ export class UsuariosLista {
   excluir(id: string): void {
     this.erro.set('');
     this.sucesso.set('');
+    this.usuarioPendente.set(id);
+  }
+
+  cancelarExclusao(): void {
+    this.usuarioPendente.set(null);
+  }
+
+  confirmarExclusao(): void {
+    const id = this.usuarioPendente();
+
+    if (!id) return;
+
     this.servico.excluir(id);
+    this.usuarioPendente.set(null);
     this.sucesso.set('Usuário excluído com sucesso.');
   }
 }

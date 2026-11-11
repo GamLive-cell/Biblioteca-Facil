@@ -12,3 +12,58 @@ input { box-sizing: border-box; width: 100%; padding: 12px; border: 1px solid #c
 @media (max-width: 600px) {
   .cabecalho { align-items: flex-start; flex-direction: column; }
 }
+
+.modal-fundo {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-confirmacao {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-confirmacao h2 {
+  margin-top: 0;
+}
+
+.modal-confirmacao p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.botoes-confirmacao {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.btn-cancelar,
+.btn-excluir {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-cancelar {
+  background: #e5e7eb;
+  color: #333;
+}
+
+.btn-excluir {
+  background: #dc2626;
+  color: white;
+}

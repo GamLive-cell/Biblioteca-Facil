@@ -1,4 +1,5 @@
-﻿<section class="usuarios-container">
+﻿
+<section class="usuarios-container">
   <header class="cabecalho">
     <div>
       <h1>Usuários</h1>
@@ -14,9 +15,11 @@
   @if (carregando()) {
     <p role="status">Carregando usuários...</p>
   }
+
   @if (erro()) {
     <p class="mensagem-erro" role="alert">{{ erro() }}</p>
   }
+
   @if (sucesso()) {
     <p class="mensagem-sucesso" role="status">{{ sucesso() }}</p>
   }
@@ -32,6 +35,33 @@
     <div class="estado-vazio">
       <h2>Nenhum usuário encontrado</h2>
       <p>Tente outro nome ou e-mail, ou cadastre um novo usuário.</p>
+    </div>
+  }
+
+  @if (usuarioPendente()) {
+    <div class="modal-fundo">
+      <div class="modal-confirmacao" role="alertdialog"
+        aria-modal="true" aria-labelledby="titulo-confirmacao">
+
+        <h2 id="titulo-confirmacao">Confirmar exclusão</h2>
+
+        <p>
+          Tem certeza de que deseja excluir este usuário?
+          Essa ação não poderá ser desfeita.
+        </p>
+
+        <div class="botoes-confirmacao">
+          <button type="button" class="btn-cancelar"
+            (click)="cancelarExclusao()">
+            Cancelar
+          </button>
+
+          <button type="button" class="btn-excluir"
+            (click)="confirmarExclusao()">
+            Sim, excluir
+          </button>
+        </div>
+      </div>
     </div>
   }
 </section>
